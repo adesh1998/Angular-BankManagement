@@ -139,39 +139,40 @@
                         </div>
                        
   
-                      <label>Gender:</label>
-  
-                      <div class="form-group" *ngFor="let gender of genders">
-                          <label>
-                            <input
-                              type="radio"
-                              [value]="gender"
-                              formControlName="gender">{{ gender }}
-                          </label>
-                         
-                      </div>
-                      <span class="text-danger"
-                      *ngIf="(f.gender.touched || submitted) && f.gender.errors?.required">
-                      Gender is required
-                      </span>
-                      <br>
-                     
-                        <label>Marital Status:</label>
+                        <label>Gender:</label>
+
+                        <div class="form-check form-check-inline" *ngFor="let gender of genders">
+                            <label class="form-check-label">
+                              <input class="form-check-inline"
+                                type="radio"
+                                [value]="gender"
+                                formControlName="gender">{{ gender }}
+                            </label>
+                           
+                        </div>
                         
-                      
-                      <div class="form-group" *ngFor="let status of maritalStatus">
-                          <label>
-                            <input
-                              type="radio"
-                              [value]="status"
-                              formControlName="maritalstatus">{{ status }}
-                          </label>
-                      
-                      </div>
-                      <div class="text-danger"
-                      *ngIf="(f.maritalstatus.touched || submitted) && f.maritalstatus.errors?.required">
-                      Marital Status is required
-                      </div>
+                        <div class="text-danger"
+                        *ngIf="(f.gender.touched || submitted) && f.gender.errors?.required">
+                        Gender is required
+                        </div>
+                     
+                      <br>
+                      <br>
+                       <label>Marrital Status:</label>
+   
+                       <div class="form-check form-check-inline" *ngFor="let status of maritalStatus">
+                           <label class="form-check-label">
+                             <input class="form-check-inline"
+                               type="radio"
+                               [value]="status"
+                               formControlName="maritalstatus">{{ status }}
+                           </label>
+                          
+                       </div>
+                       <div class="text-danger"
+                       *ngIf="(f.maritalstatus.touched || submitted) && f.maritalstatus.errors?.required">
+                       Marital Status is required
+                   </div>
   
                       <div class="form-group">
                           <label>YOUR PHONE NUMBER </label>
