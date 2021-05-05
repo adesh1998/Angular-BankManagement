@@ -1,0 +1,77 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+   
+      
+      <form class="form-horizontal" role="form"#authForm="ngForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="alert alert-danger" *ngIf="error">
+            <p>{{ error }}</p>
+          </div>
+          <div *ngIf="isLoading" style="text-align: center;">
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+          <h2>Login</h2>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              formControlName="email"
+            />
+            <span class="text-danger"
+            *ngIf="(f.email.touched || submitted) && f.email.errors?.required">
+            Email is required
+        </span>
+        <span class="text-danger"
+            *ngIf="f.email.touched && f.email.errors?.email">
+            Enter a valid email address
+        </span>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <span class="text-danger"
+            *ngIf="(f.password.touched || submitted) && f.password.errors?.required">
+            Password is required
+        </span>
+          </div>
+        <div>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!authForm.valid"
+          >
+           Login
+          </button>
+
+          <div class="container signin">
+            <p>Didn't had an account? <a [routerLink]="['/register']">Sign Up</a>.</p>
+          </div>
+          
+         
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+

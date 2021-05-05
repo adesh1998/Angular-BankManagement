@@ -1,0 +1,38 @@
+{
+  "user": [
+    {
+      "id":1,
+      
+    "name":"abc"
+    "username":"abc",
+    "guardianType":"abc",
+    "guardianName":"abc",
+    "address":"abc",
+    "citizenship":"abc",
+    "country":"abc",
+    "state":"abc",
+    "email":"abc",
+    "gender":"abc",
+    "maritalstatus":"abc",
+    "phonenumber":"abc",
+    "dob":"abc",
+    "dateRegister":"abc",
+    "accType":"abc",
+    "branchName":"abc",
+    "citizenshipStatus":"abc",
+    "ammount":"abc",
+    "indentification":"abc",
+    "indentificationNo":"abc",
+    "referName":"abc",
+    "referNumber":"abc",
+    "referaddress":"abc",
+    "password":"abc"
+    "confirmPassword":"abc"
+
+    }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}

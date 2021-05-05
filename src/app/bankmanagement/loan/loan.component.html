@@ -1,0 +1,133 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+   
+       
+               
+               
+            <form id="Loanform" #authForm="ngForm" [formGroup]="loanInfo" class="form-horizontal"  role="form" (ngSubmit)="onSubmit()">
+                
+                    <h3>Customer Loan Detail</h3>
+               
+                <div class="form-group">
+                    
+                        <label for="loanType">Loan Type:</label>
+                        <select class="form-control" name="loanType" id="loanType" formControlName="loanType">
+                            <option class="form-control" value="Education">Education</option>
+                            <option class="form-control" value="Personal">Personal</option>
+                        </select>
+                        <div class="text-danger"
+                       *ngIf="(f.loanType.touched) && f.loanType.errors?.required">
+                        Loan Type is required
+                        </div>
+                </div>
+
+                <div class="form-group">
+                        <label for="loanAmt">Loan Amount:</label>
+                        <input class="form-control" type="text" id="loanAmt" name="loanAmt" formControlName="loanAmt">
+                        <div *ngIf="(f.loanAmt.touched) && f.loanAmt.errors?.required">
+                            Loan Amount is required
+                        </div>
+                </div>
+
+                <div class="form-group">
+
+                         <label for="applyDate">Loan Apply Date:</label>
+                        <input class="form-control" type="date" id="applyDate" name="applyDate" formControlName="applyDate">
+                            <div *ngIf="(f.applyDate.touched) && f.applyDate.errors?.required">
+                                Apply Date is required
+                            </div>
+                </div>
+
+                <ng-container *ngIf="f.loanType.value== 'Education'">
+
+                    <div class="form-group">
+                        
+                            <label for="courseFee">Course Fee:</label>
+                            <input class="form-control" type="text" id="courseFee" name="courseFee" formControlName="courseFee">
+                                <div *ngIf="(f.courseFee.touched) && f.courseFee.errors?.required">
+                                    Course Fee  is required
+                                </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="course">Course:</label>
+                           <input class="form-control" type="text" id="course" name="course" formControlName="course">
+                                <div *ngIf="(f.course.touched) && f.course.errors?.required">
+                                    Course  is required
+                                </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="fatherOcc">Father Occupation:</label>
+                            <input class="form-control" type="text" id="fatherOcc" name="fatherOcc" formControlName="fatherOcc">
+                                <div *ngIf="(f.fatherOcc.touched) && f.fatherOcc.errors?.required">
+                                    Father Occupation  is required
+                                </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="experience">Father Experience:</label>
+                            <input class="form-control" type="text" id="experience" name="experience" formControlName="experience">
+                                <div *ngIf="(f.experience.touched) && f.experience.errors?.required">
+                                    Experience  is required
+                                </div>
+                    </div>
+                </ng-container>
+
+                    <ng-container *ngIf="f.loanType.value == 'Personal'">
+                        <div class="form-group">
+                            <label for="annualIncome">Annual Income:</label>
+                            <input class="form-control" type="text" id="annualIncome" name="annualIncome" formControlName="annualIncome">
+                                <div *ngIf="(f.annualIncome.touched) && f.annualIncome.errors?.required">
+                                    Annual Income  is required
+                                </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="companyName">Company Name:</label>
+                            <input class="form-control" type="text" id="companyName" name="companyName" formControlName="companyName">
+                                <div *ngIf="(f.companyName.touched) && f.companyName.errors?.required">
+                                    Company Name  is required
+                                </div>
+                        </div> 
+
+
+                        <div class="form-group">   
+                            <label for="designation">Designation:</label>
+                            <input class="form-control" type="text" id="designation" name="designation" formControlName="designation">
+                                <div *ngIf="(f.designation.touched) && f.designation.errors?.required">
+                                    Designation  is required
+                                </div>
+                        </div> 
+                        <div class="form-group">
+                            <label for="perosnalExperience">Personal Experience:</label>
+                            <input class="form-control" type="text" id="perosnalExperience" formControlName="perosnalExperience" formControlName="perosnalExperience">
+                                <div *ngIf="(f.perosnalExperience.touched) && f.perosnalExperience.errors?.required">
+                                    Perosnal Experience  is required
+                                </div>
+                        </div>
+                    </ng-container>
+                    <div class="form-group">
+                       
+                         <button
+                          class="btn btn-primary"
+                          type="submit"
+                          
+                        >
+                         Submit
+                        </button>
+                    </div>
+                    
+                     
+                      
+            
+            </form>
+        </div>
+   

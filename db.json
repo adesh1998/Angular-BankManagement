@@ -1,0 +1,595 @@
+{
+  "user": [
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-01T19:31:12.151Z",
+      "accType": "Saving",
+      "branchName": "a",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "a",
+      "indentificationNo": "2",
+      "referName": "a",
+      "referNumber": "2",
+      "referaddress": "a",
+      "password": "a",
+      "confirmPassword": "a",
+      "id": 1
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T08:46:03.219Z",
+      "accType": "Saving",
+      "branchName": "s",
+      "citizenshipStatus": "Senior",
+      "ammount": "1",
+      "indentification": "s",
+      "indentificationNo": "2",
+      "referName": "d",
+      "referNumber": "2",
+      "referaddress": "dad",
+      "password": "abc",
+      "confirmPassword": "abc",
+      "id": 2
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T08:54:00.507Z",
+      "accType": "Saving",
+      "branchName": "s",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "s",
+      "indentificationNo": "2",
+      "referName": "s",
+      "referNumber": "2",
+      "referaddress": "s",
+      "password": "1",
+      "confirmPassword": "1",
+      "id": 3
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T08:55:57.726Z",
+      "accType": "Saving",
+      "branchName": "s",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "s",
+      "indentificationNo": "s",
+      "referName": "s",
+      "referNumber": "2",
+      "referaddress": "s",
+      "password": "a",
+      "confirmPassword": "a",
+      "id": 4
+    },
+    {
+      "name": "a",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "a",
+      "state": "a",
+      "address": "a",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-07-07",
+      "dateRegister": "2021-05-02T09:00:44.343Z",
+      "accType": "Saving",
+      "branchName": "s",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "s",
+      "indentificationNo": "2",
+      "referName": "s",
+      "referNumber": "3",
+      "referaddress": "s",
+      "password": "s",
+      "confirmPassword": "s",
+      "id": 5
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "aa",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "0588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T09:05:10.359Z",
+      "accType": "Saving",
+      "branchName": "a",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "a",
+      "indentificationNo": "2",
+      "referName": "a",
+      "referNumber": "2",
+      "referaddress": "a",
+      "password": "a",
+      "confirmPassword": "a",
+      "id": 6
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T09:07:04.815Z",
+      "accType": "Saving",
+      "branchName": "a",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "a",
+      "indentificationNo": "a",
+      "referName": "a",
+      "referNumber": "2",
+      "referaddress": "a",
+      "password": "a",
+      "confirmPassword": "a",
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T12:54:44.879Z",
+      "accType": "Saving",
+      "branchName": "a",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "a",
+      "indentificationNo": "a",
+      "referName": "a",
+      "referNumber": "2",
+      "referaddress": "a",
+      "password": "a",
+      "confirmPassword": "a",
+      "id": 10
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "a",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagara",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T13:20:07.160Z",
+      "accType": "Current",
+      "branchName": "aaaaaaaaaaaaaaa",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "aaaaaaaaaaaaaaaa",
+      "indentificationNo": "aaaaaaaaaaaaa",
+      "referName": "111111111",
+      "referNumber": "11111111",
+      "referaddress": "111111111",
+      "password": "1111",
+      "confirmPassword": "1111",
+      "id": 11
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagaraa",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "0588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T14:22:53.538Z",
+      "accType": "Saving",
+      "branchName": "a",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "a",
+      "indentificationNo": "a",
+      "referName": "a",
+      "referNumber": "2",
+      "referaddress": "a",
+      "password": "a",
+      "confirmPassword": "a",
+      "id": 12
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "adesh",
+      "guardianType": "a",
+      "guardianName": "a",
+      "citizenship": "a",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-02T16:30:23.646Z",
+      "accType": "Saving",
+      "branchName": "a",
+      "citizenshipStatus": "Senior",
+      "ammount": "0",
+      "indentification": "a",
+      "indentificationNo": "a",
+      "referName": "a",
+      "referNumber": "2",
+      "referaddress": "a",
+      "password": "a",
+      "confirmPassword": "a",
+      "id": 13
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "a",
+      "guardianType": "aaaaaaaaa",
+      "guardianName": "aaaaaaaaaaaa",
+      "citizenship": "aaaaaaaa",
+      "country": "India",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-04T07:20:28.843Z",
+      "accType": "Saving",
+      "branchName": "aaaaaaa",
+      "citizenshipStatus": "",
+      "ammount": "10000",
+      "indentification": "aaaaaaaa",
+      "indentificationNo": "asdddddddsad",
+      "referName": "aaaaaaa",
+      "referNumber": "111111111",
+      "referaddress": "aaaaaa",
+      "password": "a",
+      "id": 14
+    },
+    {
+      "name": "Adesh Anil Bhosale",
+      "username": "aaaaaaaaaa",
+      "guardianType": "aaaaaaaaaaaaaa",
+      "guardianName": "aaaaaaaaaaa",
+      "citizenship": "aaaaaaaaaaaa",
+      "country": "aaaaaaa",
+      "state": "maharastra",
+      "address": "bhosale aali,wanewadi\nsomeshwarnagar",
+      "email": "aadesh.15298@gmail.com",
+      "gender": "male",
+      "maritalstatus": "single",
+      "phonenumber": "7588874140",
+      "dob": "1999-11-11",
+      "dateRegister": "2021-05-04T07:27:28.547Z",
+      "accType": "Saving",
+      "branchName": "aaaaaa",
+      "citizenshipStatus": "",
+      "ammount": "10000",
+      "indentification": "aaaaaaaaa",
+      "indentificationNo": "aaaaaaaaaaaa",
+      "referName": "aaaaaaaa",
+      "referNumber": "11111",
+      "referaddress": "aaaaaa",
+      "password": "a",
+      "id": 15
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "username": "sdf",
+      "password": "sdfsdfsd",
+      "id": 14
+    },
+    {
+      "username": "sdf",
+      "password": "sdfsdfsd",
+      "id": 15
+    },
+    {
+      "username": "ds",
+      "password": "sad",
+      "id": 16
+    },
+    {
+      "username": "ds",
+      "password": "sad",
+      "id": 17
+    },
+    {
+      "username": "sd",
+      "password": "sdfdf",
+      "id": 18
+    },
+    {
+      "username": "sd",
+      "password": "sdfdf",
+      "id": 19
+    },
+    {
+      "username": "sd",
+      "password": "sdfdf",
+      "id": 20
+    },
+    {
+      "username": "sd",
+      "password": "sdfdf",
+      "id": 21
+    },
+    {
+      "username": "sd",
+      "password": "sdfdf",
+      "id": 22
+    },
+    {
+      "username": "asdsa",
+      "password": "asdas",
+      "id": 23
+    },
+    {
+      "username": "asdsa",
+      "password": "asdas",
+      "id": 24
+    },
+    {
+      "username": "asdsa",
+      "password": "asdas",
+      "id": 25
+    },
+    {
+      "username": "asdsa",
+      "password": "asdsadas",
+      "id": 26
+    },
+    {
+      "username": "dsfdsfsd",
+      "password": "asdsadas",
+      "id": 27
+    },
+    {
+      "username": "dsfdsfsd",
+      "password": "asdsadas",
+      "id": 28
+    },
+    {
+      "username": "dsfdsfsd",
+      "password": "asdsadas",
+      "id": 29
+    },
+    {
+      "username": "dsfdsfsd",
+      "password": "asdsadas",
+      "id": 30
+    },
+    {
+      "username": "ad",
+      "password": "afas",
+      "id": 31
+    },
+    {
+      "username": "asdda",
+      "password": "asdasdas",
+      "id": 32
+    },
+    {
+      "username": "abcd",
+      "password": "abcd",
+      "id": 33
+    },
+    {
+      "username": "a",
+      "password": "a",
+      "id": 34
+    },
+    {
+      "username": "abc",
+      "password": "abc",
+      "id": 35
+    },
+    {
+      "username": "a",
+      "password": "a",
+      "id": 36
+    },
+    {
+      "username": "abc",
+      "password": "abc",
+      "id": 37
+    },
+    {
+      "username": "abc",
+      "password": "abc",
+      "id": 38
+    },
+    {
+      "username": "abcd",
+      "password": "abcd",
+      "id": 39
+    },
+    {
+      "username": "aaaaaaaaaaaa",
+      "password": "aaaaaaaaaaaaaa",
+      "id": 40
+    },
+    {
+      "username": "aaaa",
+      "password": "aaaaa",
+      "id": 41
+    },
+    {
+      "username": "aaaaaaaaaa",
+      "password": "aaaaaaaaaaaa",
+      "id": 42
+    },
+    {
+      "username": "aaaa",
+      "password": "aaaaaaaaaa",
+      "id": 43
+    },
+    {
+      "username": "a",
+      "password": "aaaaa",
+      "id": 44
+    },
+    {
+      "username": "abc",
+      "password": "abc",
+      "id": 45
+    },
+    {
+      "username": "aaaaaaaaaaaaaaaaaaaaaaaa",
+      "password": "aaaaaaa",
+      "id": 46
+    },
+    {
+      "username": "aaeeeerw",
+      "password": "awwww",
+      "id": 47
+    },
+    {
+      "username": "aaaaaaaaaaaaaaaaaaaaaaaa",
+      "password": "aaaa",
+      "id": 48
+    },
+    {
+      "username": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "password": "a",
+      "id": 49
+    }
+  ]
+}

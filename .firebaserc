@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bankmanagement-b17e3": {
+      "hosting": {
+        "recipe-app": [
+          "bankmanagement-b17e3"
+        ]
+      }
+    }
+  }
+}

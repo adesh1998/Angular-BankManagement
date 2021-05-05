@@ -1,0 +1,47 @@
+
+<!-- <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="nav navbar-nav navbar-left">
+            <a routerLink="." class="navbar-brand">Bank Management</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a  [routerLink]="['/login']" class="nav navbar-nav">Login</a></li>
+                <li><a  [routerLink]="['/register']" class="nav navbar-nav">Register</a></li>
+                
+            </ul>
+            
+        </div>
+
+    </div>
+</nav> -->
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">BankManagement</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav navbar-left">
+        <li><a *ngIf="isAuthenticated" [routerLink]="['/loan']" class="nav navbar-nav">Apply Loan</a></li>
+        <li><a *ngIf="isAuthenticated" [routerLink]="['/update']" class="nav navbar-nav">Update Detail</a></li>
+    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a *ngIf="!isAuthenticated" [routerLink]="['/login']" class="nav navbar-nav">Login</a></li>
+            <li><a *ngIf="!isAuthenticated" [routerLink]="['/register']" class="nav navbar-nav">Register</a></li>
+            <li *ngIf="isAuthenticated" >
+                <a  style="cursor: pointer" (click)="onLogout()"class="nav navbar-nav">Logout</a>
+              </li>
+          
+         
+        </ul>
+        
+      </div>
+    </nav>
+<router-outlet></router-outlet>
+
+
+
+
