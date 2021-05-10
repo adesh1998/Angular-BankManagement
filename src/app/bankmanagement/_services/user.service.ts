@@ -122,6 +122,11 @@ export class UserService {
               }
 
 
+              getDataJson(){
+                return this.http.get<Customer>("http://localhost:3000/user") ;
+              }
+
+
 
 
 

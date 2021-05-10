@@ -11,7 +11,7 @@
 <div class="container">
    
       
-      <form class="form-horizontal" role="form"#authForm="ngForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <form class="form-horizontal" role="form"  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="alert alert-danger" *ngIf="error">
             <p>{{ error }}</p>
           </div>
@@ -53,7 +53,7 @@
           <button
             class="btn btn-primary"
             type="submit"
-            [disabled]="!authForm.valid"
+            [disabled]="!registerForm.valid"
           >
            Login
           </button>

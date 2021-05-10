@@ -13,8 +13,9 @@ import { AuthGuard } from './bankmanagement/_helpers/auth.guard';
 const appRoutes:Routes=[
   {path:'register',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
+  {path:'',component:LoginComponent},
   {path:'loan',component:LoanComponent,canActivate: [AuthGuard]},
-  {path:'home',component:HomeComponent,canActivate: [AuthGuard]},
+  {path:'home',component:HomeComponent},
   {path:'update',component:UpdatedetailComponent,canActivate: [AuthGuard]},
   // { 
   //   path: 'profile',

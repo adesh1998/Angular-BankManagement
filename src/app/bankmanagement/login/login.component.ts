@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     const password = this.registerForm.value.password;
 
       authObs=this.authService.signin(email, password);
-      authObs.subscribe(
+      authObs.pipe(first()).subscribe(
         resData => {
           console.log(resData);
           this.isLoading = false;
@@ -75,9 +75,9 @@ export class LoginComponent implements OnInit {
 
   
 
-  goToRegister() {
-    this.router.navigateByUrl("/register")
-  }
+  // goToRegister() {
+  //   this.router.navigateByUrl("/register")
+  // }
 
   // onSubmit() {
   //   var check=this.authService.login(this.registerForm.value);

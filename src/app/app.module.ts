@@ -7,7 +7,7 @@ import { BankComponent } from './bankmanagement/bankmanagement.component';
 import { RegistrationComponent } from './bankmanagement/registration/registration.component';
 
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './bankmanagement/login/login.component';
 import { LoanComponent } from './bankmanagement/loan/loan.component';
 import { UpdatedetailComponent } from './bankmanagement/updatedetail/updatedetail.component';

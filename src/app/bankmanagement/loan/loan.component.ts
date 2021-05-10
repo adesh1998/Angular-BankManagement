@@ -63,28 +63,29 @@ export class LoanComponent implements OnInit {
 
 
   onSubmit() {
-    if (!this.loanInfo.valid) {
-      return;
-    }
-   
+    // if (!this.loanInfo.valid) {
+    //   return;
+    // }
+    this.router.navigateByUrl("/home")
+  
 
-      this.userService.applyLoan(this.loanInfo.value).
-      subscribe(
-        resData => {
-          console.log(resData);
-          this.isLoading = false;
+      // this.userService.applyLoan(this.loanInfo.value).
+      // subscribe(
+      //   resData => {
+      //     console.log(resData);
+      //     this.isLoading = false;
           
-          this.router.navigateByUrl("/home");
-        },
-        errorMessage => {
-          console.log(errorMessage);
-          this.error = errorMessage;
-          this.isLoading = false;
-        }
-      );
+      //     this.router.navigateByUrl("/home");
+      //   },
+      //   errorMessage => {
+      //     console.log(errorMessage);
+      //     this.error = errorMessage;
+      //     this.isLoading = false;
+      //   }
+      // );
     
 
-      this.loanInfo.reset();
+      // this.loanInfo.reset();
   }
 
 

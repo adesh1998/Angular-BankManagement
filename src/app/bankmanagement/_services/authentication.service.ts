@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable, of, Subject, throwError } from 'rxjs';
 import { Customer } from '../_models/customer';
 import { User } from '../_models/user.model';
 import { Router } from '@angular/router';
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -25,9 +26,12 @@ export class AuthenticationService {
     user = new Subject<User>();
     public currentUser: Observable<User>;
     token=""
+    customer:Customer[]=[];
 
     constructor(private http: HttpClient,
-      private router:Router) {
+      private router:Router
+     
+      ) {
       
     //   this.user = new BehaviorSubject<User>(JSON.parse(JSON.stringify(localStorage.getItem('dataSource') ||'{}')));
      }
@@ -121,23 +125,33 @@ export class AuthenticationService {
 
   // public login(userInfo: Customer){
   //   let errorMessage ;
-  //   if(this.newCustomer['email']==userInfo['email'] && this.newCustomer['password']==userInfo['password']){
+    // if(this.newCustomer['email']==userInfo['email'] && this.newCustomer['password']==userInfo['password']){
      
-  //     return true;
-  //   }
-  //   else{
+    //   return true;
+    // }
+    // else{
 
-  //     return throwError(errorMessage);
+    //   return throwError(errorMessage);
     
-  //   }
+    // }
   // }
 
 
-//   login(data): Observable<any> {
-//     return this.http.post<any>("http://localhost:3000/user", data, httpOptions).pipe(
-//         tap((result) => this.save_token(result)),
-//         catchError(this.handleError<any>('login'))
-//     );
+//   login(data) {
+//     this.userService.getDataJson().subscribe(customer=>this.customer.push(customer))
+//     for(let i=0;i<this.customer.length;i++){
+//       if(this.customer['email']==data['email'] && this.customer['password']==data['password']){
+//         this.http.post<any>("http://localhost:3000/user", data, httpOptions).pipe(
+//           tap((result) => this.save_token(result)),
+//           catchError(this.handleError<any>('login'))
+//       );
+//         return true;
+//       }
+      
+      
+
+//     }
+   
 // }
 // private handleError<T>(operation = 'operation', result?: T) {
 //     return (error: any): Observable<T> => {

@@ -25,7 +25,6 @@ export class RegistrationComponent {
   maritalStatus = ['single', 'married'];
   currentDate = new Date();
   
-  dobirth:Date
   Account: any = ['Saving','Salaried'];
   isLoading = false;
   error: string = "";

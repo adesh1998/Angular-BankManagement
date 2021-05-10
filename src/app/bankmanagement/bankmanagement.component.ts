@@ -8,7 +8,7 @@ import { AuthenticationService } from "./_services/authentication.service";
     templateUrl:"./bankmanagement.component.html",
     styleUrls: ['./bankmanagement.component.css']
 })
-export class BankComponent  implements OnInit, OnDestroy {
+export class BankComponent  implements OnInit {
     isAuthenticated = false;
     private userSub: Subscription;
   
@@ -30,7 +30,5 @@ export class BankComponent  implements OnInit, OnDestroy {
     onLogout(){
       this.authService.logout();
     }
-  ngOnDestroy() {
-    this.userSub.unsubscribe();
-  }
+  
 }
