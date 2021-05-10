@@ -40,7 +40,7 @@ describe('LoginComponent', () => {
     control?.setValue('');
     expect(control?.valid).toBeFalsy();
  });
- it('should redirect the customer to the register page',()=>{
+ it('should not redirect the customer to the loan page if loginForm is not valid',()=>{
   let router = TestBed.get(Router);
   let spy = spyOn(router, 'navigateByUrl');
 
