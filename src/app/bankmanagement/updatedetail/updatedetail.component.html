@@ -200,7 +200,7 @@
   
                       <div class="form-group">
                           <label>Date Of Registration </label>
-                          <input [readonly]="isReadonly" type="text" class="form-control" formControlName="dateRegister">
+                          <input readonly type="text" class="form-control" formControlName="dateRegister">
                           <span class="text-danger"
                               *ngIf="(f.dateRegister.touched || submitted) && f.dateRegister.errors?.required">
                               State field is required

@@ -6,7 +6,7 @@ import { FormControl } from "@angular/forms";
   })
 export class Customer {
 
-    $key: string;
+    
     name:string;
     username:string;
     guardianType:string;

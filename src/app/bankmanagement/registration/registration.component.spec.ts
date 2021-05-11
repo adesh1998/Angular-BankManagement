@@ -1,8 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LoginComponent } from '../login/login.component';
 import { AuthenticationService } from '../_services/authentication.service';
 
 import { RegistrationComponent } from './registration.component';
@@ -10,11 +11,13 @@ import { RegistrationComponent } from './registration.component';
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
+  let mockRouter;
 
   beforeEach(async () => {
+    mockRouter = { navigate: jasmine.createSpy('navigate') };
     await TestBed.configureTestingModule({
       declarations: [ RegistrationComponent ],
-      imports: [ HttpClientTestingModule , RouterTestingModule,ReactiveFormsModule,FormsModule ],
+      imports: [ HttpClientTestingModule , [RouterTestingModule],ReactiveFormsModule,FormsModule ],
       providers: [ AuthenticationService, FormBuilder]
     })
     .compileComponents();
@@ -60,7 +63,47 @@ describe('RegistrationComponent', () => {
     
  });
 
- it('Should not go to login if registerForm is not valid',()=>{
+
+ it('Should  go to login if registerForm is  valid',()=>{
+  let router = TestBed.get(Router);
+  let spy = spyOn(router, 'navigateByUrl');
+
+  component.registerForm.controls.name.setValue("Adesh")
+  component.registerForm.controls.username.setValue("Adesh1520")
+  component.registerForm.controls.guardianType.setValue("abc")
+  component.registerForm.controls.guardianName.setValue("abc")
+  component.registerForm.controls.citizenship.setValue("indian")
+  component.registerForm.controls.country.setValue("india")
+  component.registerForm.controls.state.setValue("maharastra")
+  component.registerForm.controls.address.setValue("abc")
+  component.registerForm.controls.email.setValue("aadesh.15298@gmail.com")
+  component.registerForm.controls.gender.setValue("male")
+  component.registerForm.controls.maritalstatus.setValue("single")
+  component.registerForm.controls.phonenumber.setValue("7588874140")
+  component.registerForm.controls.dob.setValue("15/02/1999")
+  component.registerForm.controls.dateRegister.setValue("15/02/1999")
+  component.registerForm.controls.accType.setValue("saving")
+  component.registerForm.controls.branchName.setValue("murum")
+  component.registerForm.controls.citizenshipStatus.setValue("major")
+  component.registerForm.controls.ammount.setValue("10000")
+  component.registerForm.controls.indentification.setValue("abc")
+  component.registerForm.controls.indentificationNo.setValue("123456789456")
+  component.registerForm.controls.referName.setValue("abc")
+  component.registerForm.controls.referNumber.setValue("1234")
+  component.registerForm.controls.referaddress.setValue("abc")
+  component.registerForm.controls.password.setValue("abc")
+ 
+
+  component.onSubmit();
+  fixture.detectChanges();
+
+  expect(spy).toHaveBeenCalledWith(
+    router.createUrlTree(['/login']), 
+    jasmine.anything()
+  );
+});
+
+ it('Should not  go to login if registerForm is not  valid',()=>{
   let router = TestBed.get(Router);
   let spy = spyOn(router, 'navigateByUrl');
 
@@ -69,6 +112,7 @@ describe('RegistrationComponent', () => {
 
   expect(spy).not.toHaveBeenCalledWith('/login');
  });
+
 
 
 
@@ -89,6 +133,34 @@ describe('RegistrationComponent', () => {
   let control = component.registerForm.get('name');
   control?.setValue('CZX@123');
   expect(control?.valid).toBeFalsy();
+ });
+
+
+
+ it('citizenstatus based on major  ',()=>{
+  var date= new Date('1999/3/10') ;
+  console.log(date);
+  
+  component.registerForm.controls.dob.setValue(date)
+  component.citizenStatus();
+  fixture.detectChanges()
+  expect(component.status).toEqual("major");
+ });
+ it('citizenstatus based on Senior ',()=>{
+  const date= new Date("10/3/1925") ;
+  console.log(date);
+  
+  component.registerForm.controls.dob.setValue(date)
+  component.citizenStatus();
+  fixture.detectChanges()
+  expect(component.status).toEqual("Senior");
+ });
+
+ it('ammount based on accType  ',()=>{
+  component.registerForm.controls.accType.setValue("Saving")
+  component.initialDeposit();
+  fixture.detectChanges()
+  expect(component.amt).toEqual("10000");
  });
 
 });

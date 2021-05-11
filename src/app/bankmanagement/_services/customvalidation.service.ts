@@ -50,23 +50,9 @@ export class CustomvalidationService {
     });
   }
 
-  citizenStatus(control:AbstractControl){
-    let currentDate = new Date();
-        let dob = new Date(control.value);
-            let dobYear = dob.getFullYear();
-            let maxDobYear = currentDate.getFullYear();
-            let age=maxDobYear-dobYear;
-            if(age<18){
-              return "Minor";
-            }
-            if(age>18 && age<=60){
-              return "Major";
-            }
-            else{
-              return "Senior";
-            }
+ 
       
-  }
+  
 
 
 

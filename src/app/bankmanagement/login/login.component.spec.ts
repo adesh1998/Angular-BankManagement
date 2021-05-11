@@ -40,14 +40,31 @@ describe('LoginComponent', () => {
     control?.setValue('');
     expect(control?.valid).toBeFalsy();
  });
+
+
+
  it('should not redirect the customer to the loan page if loginForm is not valid',()=>{
   let router = TestBed.get(Router);
   let spy = spyOn(router, 'navigateByUrl');
 
   component.onSubmit();
 
-  expect(spy).not.toHaveBeenCalledWith('/loan');
+  expect(component).toBeNull
   });
+
+  it('should  redirect the customer to the loan page if loginForm is  valid',()=>{
+    let router = TestBed.get(Router);
+    let spy = spyOn(router, 'navigateByUrl');
+    component.registerForm.controls.email.setValue("aadesh.15298@gmail.com")
+    component.registerForm.controls.password.setValue("abc")
+    component.onSubmit();
+    fixture.detectChanges();
+
+    expect(component).toBeTruthy()
+    });
+  
+
+
   it('should make the password control required',()=>{
     let control = component.registerForm.get('password');
     control.setValue('');

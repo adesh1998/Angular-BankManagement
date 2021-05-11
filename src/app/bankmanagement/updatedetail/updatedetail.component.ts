@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { CustomvalidationService } from '../_services/customvalidation.service';
 import { Customer } from '../_models/customer';
 import { UserService } from '../_services/user.service';
-import { AlertService } from '../_services/alert.service';
+
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../_services/authentication.service';
@@ -17,21 +17,19 @@ import { AuthenticationService } from '../_services/authentication.service';
   templateUrl: './updatedetail.component.html',
   styleUrls: ['./updatedetail.component.css']
 })
-export class UpdatedetailComponent implements OnInit {
+export class UpdatedetailComponent  {
   registerForm: FormGroup;
   submitted = false;
   genders = ['male', 'female'];
   maritalStatus = ['single', 'married'];
   currentDate = new Date();
   
-  dobirth:Date
   Account: any = ['Saving','Salaried'];
   isLoading = false;
   error: string = "";
   status="";
   amt="";
-  customer:any
-  customer1:any
+  
   
 
   
@@ -49,9 +47,9 @@ export class UpdatedetailComponent implements OnInit {
     
     private authService:AuthenticationService,
     private userService:UserService,
-    private alertService:AlertService,
+   
     private router:Router,
-    
+    private http:HttpClient
    
     
     
@@ -62,13 +60,7 @@ export class UpdatedetailComponent implements OnInit {
 
   ngOnInit() {
 
-    this.customer=JSON.parse(JSON.stringify(localStorage.getItem('dataSource') || '{}'));
-    // this.userService.fetchPosts().subscribe(resData=>{
-    //   this.customer=resData
-
     
-    // })
-    this.customer1=JSON.parse(this.customer)
     
     this.registerForm = this.fb.group({
       name: ['', [Validators.required,Validators.pattern("^[a-zA-Z ]*$")]],
@@ -106,39 +98,11 @@ export class UpdatedetailComponent implements OnInit {
   }
     );
 
-    this.registerForm.patchValue(
-      {
-        'name':this.customer1.name,
-        'username':this.customer1.username,
-        'guardianType':this.customer1.guardianType,
-        'guardianName':this.customer1.guardianName,
-        'citizenship':this.customer1.citizenship,
-        'country':this.customer1.country,
-        'state':this.customer1.state,
-        'address':this.customer1.address,
-        'email':this.customer1.email,
-        'gender':this.customer1.gender,
-        'maritalstatus':this.customer1.maritalstatus,
-        'phonenumber':this.customer1.phonenumber,
-        'dob':this.customer1.name,
-        'dateRegister':this.customer1.dateRegister,
-        'accType':this.customer1.accType,
-        'branchName':this.customer1.branchName,
-        'citizenshipStatus':this.customer1.citizenshipStatus,
-        'ammount':this.customer1.ammount,
-        'indentification':this.customer1.indentification,
-        'indentificationNo':this.customer1.indentificationNo,
-        'referName':this.customer1.referName,
-        'referNumber':this.customer1.referNumber,
-        'referaddress':this.customer1.referaddress,
-        'password':this.customer1.password,
-
-
-
-      }
-    
-        
-    )
+    this.registerForm.patchValue({
+      'dateRegister':this.currentDate,
+       'citizenshipStatus':this.status,
+       'ammount':this.amt      
+    })
   }
 
   get f() {
@@ -146,69 +110,82 @@ export class UpdatedetailComponent implements OnInit {
   }
 
   // onSubmit() {
+
+  //   let authObs: Observable<AuthResponseData>;
   //   if (!this.registerForm.valid) {
   //     return;
   //   }
   //   const email = this.registerForm.value.email;
   //   const password = this.registerForm.value.password;
 
-  //   this.userService.onCreatePost(this.registerForm.value)
-  //         .pipe(first())     
-  //               .subscribe(
-  //                   data => {
-  //                       this.alertService.success('Registration successful', true);
-  //                       console.log(data);
-  //                       this.router.navigate(['/login']);
-  // },
-  // error => {
-  //     this.alertService.error(error);
-  //     this.isLoading = false;
-  // });
-  //     this.authService.signup(email, password).subscribe(
-  //       resData => {
-  //         console.log(resData);
-  //         this.isLoading = false;
-  //       },
-  //       errorMessage => {
-  //         console.log(errorMessage);
-  //         this.error = errorMessage;
-  //         this.isLoading = false;
-  //       }
-  //     );
+   
+
+  //   this.isLoading = true;
+
+   
+  //     authObs=this.authService.signup(email, password);
     
 
-    
+  //   authObs.subscribe(
+  //     resData => {
+  //       console.log(resData);
+  //       this.isLoading = false;
+  //       localStorage.setItem('dataSource', JSON.stringify(this.registerForm.value));
+
+  //       //  this.router.navigate(['/login']);
+  //       this.userService.createUser(this.registerForm.value,resData.idToken)
+  //       .pipe(first())     
+  //             .subscribe(
+  //                 data => {
+                      
+  //                     console.log(data);
+  //                     this.router.navigate(['/login']);
+  //       },
+  //       error => {
+  //           this.alertService.error(error);
+  //           this.isLoading = false;
+  //       });
+
+        
+  //     },
+  //     errorMessage => {
+  //       console.log(errorMessage);
+  //       this.error = errorMessage;
+  //       this.isLoading = false;
+  //     }
+  //   );
+  
   // }
 
 
+
+
+  
+
   onSubmit() {
-    console.log(this.registerForm.value)
+    
     if(this.registerForm.invalid)
       return;
-    this.authService.adduser(this.registerForm.value);
-    this.router.navigateByUrl("/login")
-  }
+    this.userService.adduser(this.registerForm.value) 
+        this.router.navigate(['/home']);
 
-  isReadonly = true
 
-  switch() {
-   this.isReadonly = !this.isReadonly
   }
+ 
 
 
   citizenStatus(){
       const today = new Date();
       const birthDate = new Date(this.registerForm.value.dob);
       let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth(); 
-      console.log(age);
+      const m = today.getMonth() - birthDate.getMonth();
             
            
             if(age>18 && age<=60){
-              console.log(age);
+             
               
              this.status="major"
-            console.log(this.status);
+            
             
             }
             else{
@@ -222,10 +199,10 @@ export class UpdatedetailComponent implements OnInit {
     let accType=this.registerForm.value.accType
     
      if(accType=="Saving"){
-       console.log(accType);
+       
        
        this.amt="10000"
-       console.log(this.amt);
+       
        
      }
     else{
@@ -244,3 +221,14 @@ export class UpdatedetailComponent implements OnInit {
 
 
 
+
+
+
+
+
+
+
+
+
+
+        

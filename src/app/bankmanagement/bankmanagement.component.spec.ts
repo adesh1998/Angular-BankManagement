@@ -8,26 +8,36 @@ import { AuthenticationService } from "./_services/authentication.service";
 
 describe('BankComponent', () => {
     let component: BankComponent;
-    let fixture: ComponentFixture<BankComponent>;
-    let location: Location;
-  let router: Router;
+    
+   let service:AuthenticationService;
+   let router;
+   let mockRouter
   
 
 
   
     beforeEach(async () => {
+      mockRouter = { navigate: jasmine.createSpy('navigate') };
+        service=new AuthenticationService(null,mockRouter,null);
+        component=new BankComponent(service);
       await TestBed.configureTestingModule({
         declarations: [ BankComponent ],
         imports: [ HttpClientTestingModule , RouterTestingModule,ReactiveFormsModule,FormsModule ],
         providers: [ AuthenticationService, FormBuilder]
       })
       .compileComponents();
-      router = TestBed.get(Router); 
-    location = TestBed.get(Location); 
-
-    fixture = TestBed.createComponent(BankComponent); 
-    router.initialNavigation(); 
+      
     });
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+    it('should logged out', () => {
+      localStorage.setItem('token',"abc")
+      component.onLogout()
+      expect(component).toBeTruthy();
+    });
+    
 
     
 

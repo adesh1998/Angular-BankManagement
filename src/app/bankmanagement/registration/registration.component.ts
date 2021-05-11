@@ -3,9 +3,9 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CustomvalidationService } from '../_services/customvalidation.service';
-import { Customer } from '../_models/customer';
+
 import { UserService } from '../_services/user.service';
-import { AlertService } from '../_services/alert.service';
+
 import { Router } from '@angular/router';
 import { exhaustMap, first, map, take, tap } from 'rxjs/operators';
 import { AuthenticationService, AuthResponseData } from '../_services/authentication.service';
@@ -48,7 +48,7 @@ export class RegistrationComponent {
     
     private authService:AuthenticationService,
     private userService:UserService,
-    private alertService:AlertService,
+   
     private router:Router,
     private http:HttpClient
    
@@ -110,105 +110,83 @@ export class RegistrationComponent {
     return this.registerForm.controls;
   }
 
-  onSubmit() {
+  // onSubmit() {
 
-    let authObs: Observable<AuthResponseData>;
-    if (!this.registerForm.valid) {
-      return;
-    }
-    const email = this.registerForm.value.email;
-    const password = this.registerForm.value.password;
-
-   
-
-    this.isLoading = true;
+  //   let authObs: Observable<AuthResponseData>;
+  //   if (!this.registerForm.valid) {
+  //     return;
+  //   }
+  //   const email = this.registerForm.value.email;
+  //   const password = this.registerForm.value.password;
 
    
-      authObs=this.authService.signup(email, password);
+
+  //   this.isLoading = true;
+
+   
+  //     authObs=this.authService.signup(email, password);
     
 
-    authObs.subscribe(
-      resData => {
-        console.log(resData);
-        this.isLoading = false;
-        localStorage.setItem('dataSource', JSON.stringify(this.registerForm.value));
+  //   authObs.subscribe(
+  //     resData => {
+  //       console.log(resData);
+  //       this.isLoading = false;
+  //       localStorage.setItem('dataSource', JSON.stringify(this.registerForm.value));
 
-        //  this.router.navigate(['/login']);
-        this.userService.createUser(this.registerForm.value,resData.idToken)
-        .pipe(first())     
-              .subscribe(
-                  data => {
+  //       //  this.router.navigate(['/login']);
+  //       this.userService.createUser(this.registerForm.value,resData.idToken)
+  //       .pipe(first())     
+  //             .subscribe(
+  //                 data => {
                       
-                      console.log(data);
-                      this.router.navigate(['/login']);
-        },
-        error => {
-            this.alertService.error(error);
-            this.isLoading = false;
-        });
+  //                     console.log(data);
+  //                     this.router.navigate(['/login']);
+  //       },
+  //       error => {
+  //           this.alertService.error(error);
+  //           this.isLoading = false;
+  //       });
 
         
-      },
-      errorMessage => {
-        console.log(errorMessage);
-        this.error = errorMessage;
-        this.isLoading = false;
-      }
-    );
-
+  //     },
+  //     errorMessage => {
+  //       console.log(errorMessage);
+  //       this.error = errorMessage;
+  //       this.isLoading = false;
+  //     }
+  //   );
   
-
-
-
-    
-
-
-  
-  }
-
-
-
-
-  
-
-  // onSubmit() {
-  //   console.log(this.registerForm.value)
-  //   if(this.registerForm.invalid)
-  //     return;
-  //   this.authService.adduser(this.registerForm.value) .pipe(first())     
-  //                 .subscribe(
-  //                     data => {
-  //                         this.alertService.success('Registration successful', true);
-  //                         console.log(data);
-  //                         this.router.navigate(['/login']);
-    
-  // },
-  // error => {
-  //       this.alertService.error(error);
-  //       this.isLoading = false;}
-  //       );
-
   // }
-  isReadonly = true
 
-  switch() {
-   this.isReadonly = !this.isReadonly
+
+
+
+  
+
+  onSubmit() {
+    
+    if(this.registerForm.invalid)
+      return;
+    this.userService.adduser(this.registerForm.value) 
+        this.router.navigate(['/login']);
+
+
   }
+ 
 
 
   citizenStatus(){
       const today = new Date();
       const birthDate = new Date(this.registerForm.value.dob);
       let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth(); 
-      console.log(age);
+      const m = today.getMonth() - birthDate.getMonth();
             
            
             if(age>18 && age<=60){
-              console.log(age);
+             
               
              this.status="major"
-            console.log(this.status);
+            
             
             }
             else{
@@ -222,10 +200,10 @@ export class RegistrationComponent {
     let accType=this.registerForm.value.accType
     
      if(accType=="Saving"){
-       console.log(accType);
+       
        
        this.amt="10000"
-       console.log(this.amt);
+       
        
      }
     else{

@@ -4,6 +4,6 @@ import { Injectable } from "@angular/core";
     providedIn: 'root',
   })
   export class Login{
-      username:string;
+      email:string;
       password:string
   }

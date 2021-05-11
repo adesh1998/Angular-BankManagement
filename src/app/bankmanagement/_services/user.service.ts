@@ -13,126 +13,54 @@ export class UserService {
   
 
     constructor(private http: HttpClient,
-      private authService:AuthenticationService,
+      
         private customer:Customer 
             ) { }
 
   
             getAll() {
-                return this.http.get<Customer[]>("http://localhost:3000/user");
+                return this.http.get("http://localhost:3000/user");
+            }
+            public adduser(customer1){
+             
+              return this.http.post("http://localhost:3000/user",customer1)
             }
 
-            createUser(user:Customer,token:string){
-              
-              
-                 //Send Http request
-                 return this.authService.user.pipe(
-                postData => {
-                    console.log(token);
-                    
-                    return this.http
-                    .post(
-                      'https://bankmanagementnew-default-rtdb.firebaseio.com/Register.json',
-                      user, {
-                        params: new HttpParams().set('auth', token)
-                      }
-                    );
-                     
-                    
-                  });
-                
-                
-                 
-                
-
-              }
+           
 
 
-              applyLoan(loan:any){
+
+
+
+
+
+
+
+
+
+              // applyLoan(loan:any){
               
               
-                // Send Http request
-                return this.authService.user.pipe(
-               postData => {
-                   console.log(this.authService.token);
+              //   // Send Http request
+              //   return this.authService.user.pipe(
+              //  postData => {
+              //      console.log(this.authService.token);
                    
-                   return this.http
-                   .post(
-                     'https://bankmanagementnew-default-rtdb.firebaseio.com/loan.json',
-                     loan, {
-                       params: new HttpParams().set('auth', this.authService.token)
-                     }
-                   );
+              //      return this.http
+              //      .post(
+              //        'https://bankmanagementnew-default-rtdb.firebaseio.com/loan.json',
+              //        loan, {
+              //          params: new HttpParams().set('auth', this.authService.token)
+              //        }
+              //      );
                     
                    
-                 });
+              //    });
                  
                 
                
 
-             }
-              customerInfo() {
-               
-               
-                return this.http
-                .get<Customer[]>(
-                  'https://bankmanagementnew-default-rtdb.firebaseio.com/register.json',
-                )
-                .pipe(
-                  map(recipes => {
-                    return recipes.map(recipe => {
-                     this.customer=recipe
-                    });
-                  }),
-                 );
-               
-            }
-                 
-                
-               
-
-                
-
-              fetchPosts() {
-                
-                
-               
-                
-                return this.authService.user.pipe(
-                  take(1),
-                  exhaustMap(user => {
-                    console.log(user.token);
-                    
-                    return this.http.get<Customer[]>(
-                      'https://bankmanagementnew-default-rtdb.firebaseio.com/register.json',
-                      {
-                        params: new HttpParams().set('auth', (user.token||''))
-                      }
-                    );
-                  }),
-                  map(recipes => {
-                    return recipes.map(recipe => {
-                      return {
-                       
-                      };
-                    });
-                  }),
-                 
-                );
-              }
-
-
-              getDataJson(){
-                return this.http.get<Customer>("http://localhost:3000/user") ;
-              }
-
-
-
-
-
-
-
-
+            // }
 
 
 

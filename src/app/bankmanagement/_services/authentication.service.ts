@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable, of, Subject, throwError } from 'rxjs';
 import { Customer } from '../_models/customer';
 import { User } from '../_models/user.model';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -26,154 +27,160 @@ export class AuthenticationService {
     user = new Subject<User>();
     public currentUser: Observable<User>;
     token=""
-    customer:Customer[]=[];
+    customer;
 
     constructor(private http: HttpClient,
-      private router:Router
+      private router:Router,
+      private userService:UserService
      
       ) {
       
-    //   this.user = new BehaviorSubject<User>(JSON.parse(JSON.stringify(localStorage.getItem('dataSource') ||'{}')));
      }
   
-    signup(email: string, password: string) {
-      return this.http
-        .post<AuthResponseData>(
-          'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDG610zqXhckM8UBXMwXx3_Bgx4nh7wxQI',
-          {
-            email: email,
-            password: password,
-            returnSecureToken: true
+ 
+
+
+  
+
+  public login(userInfo: any){
+    this.userService.getAll()
+      .subscribe((result) => {
+        this.customer=result;
+          for(let items of this.customer){
+            if(items.email == userInfo['email'] && items.password == userInfo['password']){
+                this.save_token(items.username)
+                
+                this.router.navigateByUrl('/loan')
+            }
           }
-        )
-        .pipe(
-          catchError(this.handleError),
-          tap(resData => {
-            this.token=resData.idToken;
-            localStorage.setItem('token', JSON.stringify(resData.idToken));
-            this.handleAuthentication(
-              resData.email,
-              resData.localId,
-              resData.idToken,
-              +resData.expiresIn
-            );
-          })
-        );
-    }
-  
-    signin(email: string, password: string) {
-      return this.http
-        .post<AuthResponseData>(
-          'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDG610zqXhckM8UBXMwXx3_Bgx4nh7wxQI',
-          {
-            email: email,
-            password: password,
-            returnSecureToken: true
-          }
-        )
-        .pipe(
-          catchError(this.handleError),
-          tap(resData => {
-            this.token=resData.idToken;
-            localStorage.setItem('token', JSON.stringify(resData.idToken));
-            this.handleAuthentication(
-              resData.email,
-              resData.localId,
-              resData.idToken,
-              +resData.expiresIn
-            );
-          })
-        );
-    }
+      }) 
+  }
 
-    logout(){
-      let user1=new User("","","",new Date())
-      this.user.next(user1)
-      localStorage.removeItem('token')
-      this.router.navigate(['/login']);
-    }
-  
-    private handleAuthentication(
-      email: string,
-      userId: string,
-      token: string,
-      expiresIn: number
-    ) {
-      const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-      const user = new User(email, userId, token, expirationDate);
-      this.user.next(user);
-    }
-  
-    private handleError(errorRes: HttpErrorResponse) {
-      let errorMessage = 'An unknown error occurred!';
-      if (!errorRes.error || !errorRes.error.error) {
-        return throwError(errorMessage);
-      }
-      switch (errorRes.error.error.message) {
-        case 'EMAIL_EXISTS':
-          errorMessage = 'This email exists already';
-          break;
-        case 'EMAIL_NOT_FOUND':
-          errorMessage = 'This email does not exist.';
-          break;
-        case 'INVALID_PASSWORD':
-          errorMessage = 'This password is not correct.';
-          break;
-      }
-      return throwError(errorMessage);
-    }
+  logout(){
+    localStorage.removeItem('token')
+    this.router.navigate(['/login']);
+  }
 
-  // public login(userInfo: Customer){
-  //   let errorMessage ;
-    // if(this.newCustomer['email']==userInfo['email'] && this.newCustomer['password']==userInfo['password']){
-     
-    //   return true;
-    // }
-    // else{
-
-    //   return throwError(errorMessage);
-    
-    // }
+  // loggedIn(){
+  //   return !!JSON.parse(JSON.stringify(localStorage.getItem('dataSource') || '{}'));
   // }
 
 
-//   login(data) {
-//     this.userService.getDataJson().subscribe(customer=>this.customer.push(customer))
-//     for(let i=0;i<this.customer.length;i++){
-//       if(this.customer['email']==data['email'] && this.customer['password']==data['password']){
-//         this.http.post<any>("http://localhost:3000/user", data, httpOptions).pipe(
-//           tap((result) => this.save_token(result)),
-//           catchError(this.handleError<any>('login'))
-//       );
-//         return true;
-//       }
-      
-      
 
-//     }
+  save_token(data) {
    
-// }
-// private handleError<T>(operation = 'operation', result?: T) {
-//     return (error: any): Observable<T> => {
-//         return of(result as T);
-//     };
-// }
-// private save_token(data) {
-//     if (data.success) {
-//         localStorage.setItem('token', data.token);
-//         return;
-//     }
-// }
+    localStorage.setItem('token', data);
+    return data;
+     
+ 
+}
+
+get_token()
+{
+  return localStorage.getItem('token')
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // signup(email: string, password: string) {
+    //   return this.http
+    //     .post<AuthResponseData>(
+    //       'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDG610zqXhckM8UBXMwXx3_Bgx4nh7wxQI',
+    //       {
+    //         email: email,
+    //         password: password,
+    //         returnSecureToken: true
+    //       }
+    //     )
+    //     .pipe(
+    //       catchError(this.handleError),
+    //       tap(resData => {
+    //         this.token=resData.idToken;
+    //         localStorage.setItem('token', JSON.stringify(resData.idToken));
+    //         this.handleAuthentication(
+    //           resData.email,
+    //           resData.localId,
+    //           resData.idToken,
+    //           +resData.expiresIn
+    //         );
+    //       })
+    //     );
+    // }
+  
+    // signin(email: string, password: string) {
+    //   return this.http
+    //     .post<AuthResponseData>(
+    //       'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDG610zqXhckM8UBXMwXx3_Bgx4nh7wxQI',
+    //       {
+    //         email: email,
+    //         password: password,
+    //         returnSecureToken: true
+    //       }
+    //     )
+    //     .pipe(
+    //       catchError(this.handleError),
+    //       tap(resData => {
+    //         this.token=resData.idToken;
+    //         localStorage.setItem('token', JSON.stringify(resData.idToken));
+    //         this.handleAuthentication(
+    //           resData.email,
+    //           resData.localId,
+    //           resData.idToken,
+    //           +resData.expiresIn
+    //         );
+    //       })
+    //     );
+    // }
 
   
-  public adduser(customer1){
-    this.newCustomer = customer1;
-    console.log(this.newCustomer)
-    return this.http.post("http://localhost:3000/user",customer1)
-  }
-
-
-  loggedIn(){
-    return !!JSON.parse(JSON.stringify(localStorage.getItem('dataSource') || '{}'));
-  }
-}
+    // private handleAuthentication(
+    //   email: string,
+    //   userId: string,
+    //   token: string,
+    //   expiresIn: number
+    // ) {
+    //   const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    //   const user = new User(email, userId, token, expirationDate);
+    //   this.user.next(user);
+    // }
+  
+    // private handleError(errorRes: HttpErrorResponse) {
+    //   let errorMessage = 'An unknown error occurred!';
+    //   if (!errorRes.error || !errorRes.error.error) {
+    //     return throwError(errorMessage);
+    //   }
+    //   switch (errorRes.error.error.message) {
+    //     case 'EMAIL_EXISTS':
+    //       errorMessage = 'This email exists already';
+    //       break;
+    //     case 'EMAIL_NOT_FOUND':
+    //       errorMessage = 'This email does not exist.';
+    //       break;
+    //     case 'INVALID_PASSWORD':
+    //       errorMessage = 'This password is not correct.';
+    //       break;
+    //   }
+    //   return throwError(errorMessage);
+    // }

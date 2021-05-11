@@ -8,7 +8,7 @@ import { AuthenticationService } from "./_services/authentication.service";
     templateUrl:"./bankmanagement.component.html",
     styleUrls: ['./bankmanagement.component.css']
 })
-export class BankComponent  implements OnInit {
+export class BankComponent  {
     isAuthenticated = false;
     private userSub: Subscription;
   
@@ -17,14 +17,14 @@ export class BankComponent  implements OnInit {
       private authService: AuthenticationService
     ) {}
   
-    ngOnInit() {
+    // ngOnInit() {
 
-      this.userSub = this.authService.user.subscribe(user => {
-        this.isAuthenticated = !!JSON.parse(JSON.stringify(localStorage.getItem('dataSource') || '{}'));;
-        console.log(!user);
-        console.log(!!user);
-      });
-    }
+    //   this.userSub = this.authService.save_token(user => {
+    //     this.isAuthenticated = !!JSON.parse(JSON.stringify(localStorage.getItem('token') || '{}')).subscribe(user=>{})
+    //     console.log(!user);
+    //     console.log(!!user);
+    //   });
+    //}
 
 
     onLogout(){

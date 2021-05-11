@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
-import { AlertService } from '../_services/alert.service';
+
 import { AuthenticationService, AuthResponseData } from '../_services/authentication.service';
 
 @Component({
@@ -45,32 +43,32 @@ export class LoginComponent implements OnInit {
 
   
 
-  onSubmit() {
-    if (!this.registerForm.valid) {
-      return;
-    }
-    let authObs: Observable<AuthResponseData>;
-    const email = this.registerForm.value.email;
-    const password = this.registerForm.value.password;
+  // onSubmit() {
+  //   if (!this.registerForm.valid) {
+  //     return;
+  //   }
+  //   let authObs: Observable<AuthResponseData>;
+  //   const email = this.registerForm.value.email;
+  //   const password = this.registerForm.value.password;
 
-      authObs=this.authService.signin(email, password);
-      authObs.pipe(first()).subscribe(
-        resData => {
-          console.log(resData);
-          this.isLoading = false;
-          console.log(resData.idToken)
-          this.router.navigateByUrl("/loan");
-        },
-        errorMessage => {
-          console.log(errorMessage);
-          this.error = errorMessage;
-          this.isLoading = false;
-        }
-      );
+  //     authObs=this.authService.signin(email, password);
+  //     authObs.pipe(first()).subscribe(
+  //       resData => {
+  //         console.log(resData);
+  //         this.isLoading = false;
+  //         console.log(resData.idToken)
+  //         this.router.navigateByUrl("/loan");
+  //       },
+  //       errorMessage => {
+  //         console.log(errorMessage);
+  //         this.error = errorMessage;
+  //         this.isLoading = false;
+  //       }
+  //     );
     
 
-      this.registerForm.reset();
-  }
+  //     this.registerForm.reset();
+  // }
 
 
   
@@ -79,16 +77,11 @@ export class LoginComponent implements OnInit {
   //   this.router.navigateByUrl("/register")
   // }
 
-  // onSubmit() {
-  //   var check=this.authService.login(this.registerForm.value);
-  //   if(this.registerForm.invalid){
-  //     return;
-  //   }
-  //   if(check===true)
-  //   this.router.navigateByUrl("/loan")
-  //   else
-  //   this.error="Invalid Crediential"
-  //   this.invalidcredentials = true;
-  //   return;
-  // }
+  onSubmit() {
+   
+    if(this.registerForm.invalid){
+      return;
+    }
+    this.authService.login(this.registerForm.value);
+  }
 }
