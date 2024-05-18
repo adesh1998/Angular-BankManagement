@@ -25,6 +25,13 @@ export class BankComponent  {
     //     console.log(!!user);
     //   });
     //}
+    ngOnInit() {
+      this.authService.isAuthenticated$.subscribe(
+        (isAuthenticated) => {
+          this.isAuthenticated = isAuthenticated;
+        }
+      );
+    }
 
 
     onLogout(){

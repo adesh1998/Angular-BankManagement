@@ -21,7 +21,8 @@ export interface AuthResponseData {
   }
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+  public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
     newCustomer = {};
 
     user = new Subject<User>();
@@ -49,7 +50,7 @@ export class AuthenticationService {
           for(let items of this.customer){
             if(items.email == userInfo['email'] && items.password == userInfo['password']){
                 this.save_token(items.username)
-                
+                this.isAuthenticatedSubject.next(true);
                 this.router.navigateByUrl('/loan')
             }
           }
@@ -58,6 +59,7 @@ export class AuthenticationService {
 
   logout(){
     localStorage.removeItem('token')
+    this.isAuthenticatedSubject.next(false);
     this.router.navigate(['/login']);
   }
 

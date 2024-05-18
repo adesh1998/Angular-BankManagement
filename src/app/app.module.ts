@@ -14,12 +14,12 @@ import { UpdatedetailComponent } from './bankmanagement/updatedetail/updatedetai
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
-import { AngularFireModule } from '@angular/fire';
 import { LoadingSpinnerComponent } from './bankmanagement/_helpers/loading-spinner/loading-spinner.component';
 import { AuthenticationService } from './bankmanagement/_services/authentication.service';
 import { AuthGuard } from './bankmanagement/_helpers/auth.guard';
 import { HomeComponent } from './bankmanagement/home/home.component';
-
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 
 var firebase={
@@ -33,7 +33,9 @@ var firebase={
   measurementId: "G-R8TF24BSQW"
 };
 
-
+// Initialize Firebase
+const app = initializeApp(firebase);
+const analytics = getAnalytics(app);
 
 @NgModule({
   declarations: [
